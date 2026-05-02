@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,35 +22,108 @@
             --white: #ffffff;
             --border-color: #e5e7eb;
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --sidebar-width: 30rem;
+            --sidebar-collapsed-width: 8rem;
         }
 
         body {
             background: var(--bg-color);
             color: var(--dark-color);
+            padding-left: var(--sidebar-width);
+            transition: .3s ease;
+        }
+
+        body.sidebar-collapsed {
+            padding-left: var(--sidebar-collapsed-width);
         }
 
         header {
+            width: var(--sidebar-width);
             background: var(--white);
             box-shadow: var(--shadow);
             border-right: 1px solid var(--border-color);
+            transition: .3s ease;
+            overflow-x: hidden;
+        }
+
+        body.sidebar-collapsed header {
+            width: var(--sidebar-collapsed-width);
+            padding-left: 1.2rem;
+            padding-right: 1.2rem;
         }
 
         header .logo {
             font-weight: 700;
             letter-spacing: .5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .8rem;
+            color: var(--dark-color);
+            white-space: nowrap;
+        }
+
+        header .logo i {
+            color: var(--main-color);
+            font-size: 2rem;
         }
 
         header .logo span {
             color: var(--main-color);
         }
 
+        body.sidebar-collapsed header .logo span {
+            display: none;
+        }
+
+        .sidebar-toggle {
+            width: 100%;
+            margin: 2rem 0 1rem;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            background: #eff6ff;
+            color: var(--main-color);
+            border-radius: .8rem;
+            cursor: pointer;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .8rem;
+            transition: .3s ease;
+        }
+
+        .sidebar-toggle:hover {
+            background: var(--main-color);
+            color: var(--white);
+        }
+
+        .sidebar-toggle i {
+            font-size: 1.5rem;
+        }
+
+        body.sidebar-collapsed .sidebar-toggle span {
+            display: none;
+        }
+
         header .navbar a {
             font-weight: 600;
             color: var(--dark-color);
             text-transform: capitalize;
-            border-radius: .5rem;
-            padding: .8rem 1rem;
+            border-radius: .7rem;
+            padding: 1rem 1.2rem;
             transition: .3s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            white-space: nowrap;
+        }
+
+        header .navbar a i {
+            font-size: 1.7rem;
+            min-width: 2.2rem;
+            text-align: center;
+            color: var(--main-color);
         }
 
         header .navbar a:hover,
@@ -60,19 +132,46 @@
             color: var(--white);
         }
 
+        header .navbar a:hover i,
+        header .navbar a.active i {
+            color: var(--white);
+        }
+
+        body.sidebar-collapsed header .navbar a {
+            justify-content: center;
+            padding: 1.2rem 0;
+        }
+
+        body.sidebar-collapsed header .navbar a span {
+            display: none;
+        }
+
+        body.sidebar-collapsed header .navbar a i {
+            margin: 0;
+            font-size: 1.9rem;
+        }
+
         .sidebar-cta {
             margin-top: 2rem;
-            padding: 1.5rem;
+            padding: 0;
             background: linear-gradient(135deg, #2563eb, #1e40af);
             border-radius: 1rem;
             color: #ffffff;
             text-align: center;
             box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .sidebar-cta a {
+            display: block;
+            padding: 1.5rem;
+            color: #ffffff;
         }
 
         .sidebar-cta i {
             font-size: 2rem;
             margin-bottom: .8rem;
+            color: #ffffff;
         }
 
         .sidebar-cta h3 {
@@ -88,7 +187,7 @@
             margin-bottom: 1rem;
         }
 
-        .sidebar-cta a {
+        .sidebar-cta strong {
             display: inline-block;
             background: #ffffff;
             color: var(--main-color);
@@ -96,6 +195,46 @@
             border-radius: .5rem;
             font-weight: 700;
             font-size: 1.1rem;
+        }
+
+        body.sidebar-collapsed .sidebar-cta {
+            border-radius: .8rem;
+        }
+
+        body.sidebar-collapsed .sidebar-cta a {
+            padding: 1.3rem 0;
+        }
+
+        body.sidebar-collapsed .sidebar-cta i {
+            margin-bottom: 0;
+            font-size: 1.9rem;
+        }
+
+        body.sidebar-collapsed .sidebar-cta-content {
+            display: none;
+        }
+
+        .follow {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .follow a {
+            background: #eff6ff;
+            color: var(--main-color);
+            border-radius: 50%;
+            width: 4rem;
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: .3s ease;
+        }
+
+        .follow a:hover {
+            background: var(--main-color);
+            color: var(--white);
         }
 
         .home {
@@ -193,32 +332,93 @@
             font-weight: 700;
         }
 
-        .skills .progress {
+        /* refined core skills section */
+        .skills-section .row-2 {
+            display: block;
+        }
+
+        .skills-intro {
+            max-width: 850px;
+            margin: 0 auto 3rem auto;
+            text-align: center;
+            font-size: 1.5rem;
+            color: var(--light-color);
+            line-height: 1.8;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
             background: var(--white);
-            padding: 1.5rem;
-            border-radius: .8rem;
             border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 2rem;
             box-shadow: var(--shadow);
-            margin-bottom: 1.5rem;
-        }
-
-        .skills .progress h3 {
-            color: var(--dark-color);
-            font-weight: 700;
-        }
-
-        .skills .progress h3 span {
-            color: var(--main-color);
-        }
-
-        .skills .progress .bar {
-            background: #e5e7eb;
-            border-radius: 2rem;
+            transition: .3s ease;
+            position: relative;
             overflow: hidden;
         }
 
-        .skills .progress .bar span {
+        .skill-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: .4rem;
             background: var(--main-color);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--main-color);
+        }
+
+        .skill-card .icon {
+            width: 4.5rem;
+            height: 4.5rem;
+            background: #dbeafe;
+            color: var(--main-color);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.7rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .skill-card p {
+            font-size: 1.35rem;
+            color: var(--light-color);
+            line-height: 1.7;
+        }
+
+        .skill-tags {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: .7rem;
+        }
+
+        .skill-tags span {
+            background: #eff6ff;
+            color: var(--main-color);
+            border: 1px solid #bfdbfe;
+            padding: .5rem .9rem;
+            border-radius: 2rem;
+            font-size: 1.1rem;
+            font-weight: 700;
         }
 
         .experience .box-container .box {
@@ -313,6 +513,44 @@
             line-height: 1.7;
             margin-bottom: 1.5rem;
         }
+
+        @media (max-width: 991px) {
+            body,
+            body.sidebar-collapsed {
+                padding-left: 0;
+            }
+
+            header,
+            body.sidebar-collapsed header {
+                width: 30rem;
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+
+            body.sidebar-collapsed header .logo span,
+            body.sidebar-collapsed header .navbar a span,
+            body.sidebar-collapsed .sidebar-toggle span,
+            body.sidebar-collapsed .sidebar-cta-content {
+                display: inline;
+            }
+
+            body.sidebar-collapsed header .navbar a {
+                justify-content: flex-start;
+                padding: 1rem 1.2rem;
+            }
+
+            body.sidebar-collapsed .sidebar-cta-content {
+                display: block;
+            }
+
+            body.sidebar-collapsed .sidebar-cta a {
+                padding: 1.5rem;
+            }
+
+            body.sidebar-collapsed .sidebar-cta i {
+                margin-bottom: .8rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -326,27 +564,66 @@
 <!-- header section starts -->
 <header>
 
-    <a href="#" class="logo"> <span>Palen</span> JM </a>
+    <a href="#" class="logo">
+        <i class="fas fa-user-tie"></i>
+        <span>Palen JM</span>
+    </a>
+
+    <button class="sidebar-toggle" id="sidebar-toggle" type="button">
+        <i class="fas fa-angle-left"></i>
+        <span>Collapse Menu</span>
+    </button>
 
     <nav class="navbar">
-        <a href="#home">home</a>
-        <a href="#about">about</a>
-        <a href="#skills">skills</a>
-        <a href="#experience">experience</a>
-        <a href="#tools">tools</a>
-        <a href="#education">education</a>
-        <a href="#contact">contact</a>
-        <a href="https://drive.google.com/drive/folders/YOUR-ACCOMPLISHMENTS-FOLDER-LINK" target="_blank">
-            accomplishments
+        <a href="#home">
+            <i class="fas fa-home"></i>
+            <span>home</span>
+        </a>
+
+        <a href="#about">
+            <i class="fas fa-user"></i>
+            <span>about</span>
+        </a>
+
+        <a href="#skills">
+            <i class="fas fa-star"></i>
+            <span>skills</span>
+        </a>
+
+        <a href="#experience">
+            <i class="fas fa-briefcase"></i>
+            <span>experience</span>
+        </a>
+
+        <a href="#tools">
+            <i class="fas fa-tools"></i>
+            <span>tools</span>
+        </a>
+
+        <a href="#education">
+            <i class="fas fa-graduation-cap"></i>
+            <span>education</span>
+        </a>
+
+        <a href="#contact">
+            <i class="fas fa-envelope"></i>
+            <span>contact</span>
+        </a>
+
+        <a href="#accomplishments">
+            <i class="fas fa-folder-open"></i>
+            <span>accomplishments</span>
         </a>
     </nav>
 
     <div class="sidebar-cta">
-        <i class="fas fa-folder-open"></i>
-        <h3>My Accomplishments</h3>
-        <p>View my work samples, projects, certificates, and completed tasks.</p>
-        <a href="https://drive.google.com/drive/folders/YOUR-ACCOMPLISHMENTS-FOLDER-LINK" target="_blank">
-            View Drive
+        <a href="https://drive.google.com/drive/folders/1gZl0JrfqCO2ru1qieTpeuKLn-ceXC3wc?usp=sharing" target="_blank">
+            <i class="fas fa-folder-open"></i>
+            <div class="sidebar-cta-content">
+                <h3>My Accomplishments</h3>
+                <p>View my work samples, projects, certificates, and completed tasks.</p>
+                <strong>View Drive</strong>
+            </div>
         </a>
     </div>
 
@@ -368,9 +645,10 @@
             I help businesses manage website content, organize tasks, support CRM workflows, prepare documents,
             create simple designs, and handle administrative work with accuracy and reliability.
         </p>
+
         <a href="#contact" class="btn">hire me</a>
         <a target="_blank" href="https://canva.link/h3thhzu3fqcjy91" class="btn">download CV</a>
-        <a target="_blank" href="https://drive.google.com/drive/folders/YOUR-ACCOMPLISHMENTS-FOLDER-LINK" class="btn">
+        <a target="_blank" href="https://drive.google.com/drive/folders/1gZl0JrfqCO2ru1qieTpeuKLn-ceXC3wc?usp=sharing" class="btn">
             view accomplishments
         </a>
     </div>
@@ -421,9 +699,6 @@
             </div>
 
             <a target="_blank" href="https://canva.link/h3thhzu3fqcjy91" class="btn">download CV</a>
-            <a target="_blank" href="https://drive.google.com/drive/folders/1gZl0JrfqCO2ru1qieTpeuKLn-ceXC3wc?usp=sharing" class="btn">
-                accomplishments
-            </a>
             <a href="#contact" class="btn">hire me</a>
         </div>
 
@@ -433,57 +708,138 @@
 <!-- about section ends -->
 
 <!-- skills section starts -->
-<section class="about" id="skills">
+<section class="about skills-section" id="skills">
 
     <h1 class="heading"> <span> core </span> skills </h1>
 
+    <p class="skills-intro">
+        I provide reliable digital support for website updates, administrative tasks, CRM organization,
+        basic web development, content management, and creative design work.
+    </p>
+
     <div class="row-2">
 
-        <div class="skills">
+        <div class="skills-grid">
 
-            <div class="progress">
-                <h3> WordPress Content Management <span> 90% </span> </h3>
-                <div class="bar"> <span></span> </div>
+            <div class="skill-card">
+                <div class="icon">
+                    <i class="fab fa-wordpress"></i>
+                </div>
+                <h3>WordPress Support</h3>
+                <p>
+                    Content updates, page editing, blog formatting, and basic website maintenance.
+                </p>
+                <div class="skill-tags">
+                    <span>WordPress</span>
+                    <span>Content Updates</span>
+                    <span>Page Editing</span>
+                </div>
             </div>
 
-            <div class="progress">
-                <h3> Website Content Updates <span> 90% </span> </h3>
-                <div class="bar"> <span></span> </div>
+            <div class="skill-card">
+                <div class="icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Basic Web Development</h3>
+                <p>
+                    Supports website content formatting, layout adjustments, and basic front-end edits.
+                </p>
+                <div class="skill-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>PHP</span>
+                </div>
             </div>
 
-            <div class="progress">
-                <h3> Basic Web Development <span> 85% </span> </h3>
-                <div class="bar"> <span></span> </div>
+            <div class="skill-card">
+                <div class="icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <h3>Task Management</h3>
+                <p>
+                    Organizes tasks, workflows, deadlines, and project updates for smoother team coordination.
+                </p>
+                <div class="skill-tags">
+                    <span>Trello</span>
+                    <span>Workflow</span>
+                    <span>Organization</span>
+                </div>
             </div>
 
-            <div class="progress">
-                <h3> HTML, CSS, JavaScript, PHP <span> 80% </span> </h3>
-                <div class="bar"> <span></span> </div>
+            <div class="skill-card">
+                <div class="icon">
+                    <i class="fas fa-users-cog"></i>
+                </div>
+                <h3>CRM Support</h3>
+                <p>
+                    Assists with contact organization, basic workflow support, and CRM data management.
+                </p>
+                <div class="skill-tags">
+                    <span>HubSpot</span>
+                    <span>Contacts</span>
+                    <span>CRM</span>
+                </div>
             </div>
 
-            <div class="progress">
-                <h3> Trello Task Management <span> 85% </span> </h3>
-                <div class="bar"> <span></span> </div>
+            <div class="skill-card">
+                <div class="icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>Canva Design</h3>
+                <p>
+                    Creates simple, clean, and professional graphics for social media and marketing materials.
+                </p>
+                <div class="skill-tags">
+                    <span>Canva</span>
+                    <span>Banners</span>
+                    <span>Graphics</span>
+                </div>
             </div>
 
-            <div class="progress">
-                <h3> Basic HubSpot Workflow Support <span> 75% </span> </h3>
-                <div class="bar"> <span></span> </div>
+            <div class="skill-card">
+                <div class="icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <h3>Document Support</h3>
+                <p>
+                    Prepares reports, documents, spreadsheets, presentations, and organized digital files.
+                </p>
+                <div class="skill-tags">
+                    <span>MS Office</span>
+                    <span>Google Docs</span>
+                    <span>Sheets</span>
+                </div>
             </div>
 
-            <div class="progress">
-                <h3> Canva Graphic Design <span> 85% </span> </h3>
-                <div class="bar"> <span></span> </div>
+            <div class="skill-card">
+                <div class="icon">
+                    <i class="fas fa-keyboard"></i>
+                </div>
+                <h3>Data Entry</h3>
+                <p>
+                    Handles accurate data entry, online research, file organization, and admin support.
+                </p>
+                <div class="skill-tags">
+                    <span>Research</span>
+                    <span>Data Entry</span>
+                    <span>Admin</span>
+                </div>
             </div>
 
-            <div class="progress">
-                <h3> Microsoft Office & Google Workspace <span> 85% </span> </h3>
-                <div class="bar"> <span></span> </div>
-            </div>
-
-            <div class="progress">
-                <h3> Data Entry & Administrative Support <span> 85% </span> </h3>
-                <div class="bar"> <span></span> </div>
+            <div class="skill-card">
+                <div class="icon">
+                    <i class="fas fa-envelope-open-text"></i>
+                </div>
+                <h3>Email & File Organization</h3>
+                <p>
+                    Supports Gmail management, file sorting, Google Drive organization, and daily online workflows.
+                </p>
+                <div class="skill-tags">
+                    <span>Gmail</span>
+                    <span>Google Drive</span>
+                    <span>Files</span>
+                </div>
             </div>
 
         </div>
@@ -648,7 +1004,7 @@
         <p>
             You can view my work samples, certificates, completed tasks, and other accomplishments through my Google Drive folder.
         </p>
-        <a target="_blank" href="https://drive.google.com/drive/folders/YOUR-ACCOMPLISHMENTS-FOLDER-LINK" class="btn">
+        <a target="_blank" href="https://drive.google.com/drive/folders/1gZl0JrfqCO2ru1qieTpeuKLn-ceXC3wc?usp=sharing" class="btn">
             view accomplishments
         </a>
     </div>
@@ -728,6 +1084,39 @@
 
 <!-- custom js file link -->
 <script src="js/script.js"></script>
+
+<!-- sidebar collapse script -->
+<script>
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const toggleIcon = sidebarToggle.querySelector('i');
+    const toggleText = sidebarToggle.querySelector('span');
+
+    function updateSidebarButton() {
+        const isCollapsed = document.body.classList.contains('sidebar-collapsed');
+
+        if (isCollapsed) {
+            toggleIcon.className = 'fas fa-angle-right';
+            toggleText.textContent = 'Expand Menu';
+        } else {
+            toggleIcon.className = 'fas fa-angle-left';
+            toggleText.textContent = 'Collapse Menu';
+        }
+    }
+
+    if (localStorage.getItem('sidebarCollapsed') === 'true') {
+        document.body.classList.add('sidebar-collapsed');
+        updateSidebarButton();
+    }
+
+    sidebarToggle.addEventListener('click', function () {
+        document.body.classList.toggle('sidebar-collapsed');
+
+        const isCollapsed = document.body.classList.contains('sidebar-collapsed');
+        localStorage.setItem('sidebarCollapsed', isCollapsed);
+
+        updateSidebarButton();
+    });
+</script>
 
 </body>
 </html>
