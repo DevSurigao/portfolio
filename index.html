@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +12,308 @@
 
     <!-- custom css file link -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- professional design refinement -->
+    <style>
+        :root {
+            --main-color: #2563eb;
+            --dark-color: #111827;
+            --light-color: #6b7280;
+            --bg-color: #f8fafc;
+            --white: #ffffff;
+            --border-color: #e5e7eb;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--dark-color);
+        }
+
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            border-right: 1px solid var(--border-color);
+        }
+
+        header .logo {
+            font-weight: 700;
+            letter-spacing: .5px;
+        }
+
+        header .logo span {
+            color: var(--main-color);
+        }
+
+        header .navbar a {
+            font-weight: 600;
+            color: var(--dark-color);
+            text-transform: capitalize;
+            border-radius: .5rem;
+            padding: .8rem 1rem;
+            transition: .3s ease;
+        }
+
+        header .navbar a:hover,
+        header .navbar a.active {
+            background: var(--main-color);
+            color: var(--white);
+        }
+
+        .sidebar-cta {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            border-radius: 1rem;
+            color: #ffffff;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .sidebar-cta i {
+            font-size: 2rem;
+            margin-bottom: .8rem;
+        }
+
+        .sidebar-cta h3 {
+            font-size: 1.4rem;
+            margin-bottom: .5rem;
+            color: #ffffff;
+        }
+
+        .sidebar-cta p {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: #e0e7ff;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-cta a {
+            display: inline-block;
+            background: #ffffff;
+            color: var(--main-color);
+            padding: .7rem 1rem;
+            border-radius: .5rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .home {
+            background: linear-gradient(135deg, #eff6ff, #ffffff);
+        }
+
+        .home .content .hi {
+            color: var(--main-color);
+            font-weight: 700;
+        }
+
+        .home .content h3 {
+            color: var(--dark-color);
+        }
+
+        .home .content h3 span {
+            color: var(--main-color);
+        }
+
+        .home .content .info {
+            color: var(--dark-color);
+            font-weight: 700;
+        }
+
+        .home .content .text {
+            color: var(--light-color);
+            max-width: 750px;
+            line-height: 1.8;
+        }
+
+        .btn {
+            background: var(--main-color);
+            color: #ffffff;
+            border-radius: .6rem;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+            transition: .3s ease;
+        }
+
+        .btn:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+        }
+
+        .heading {
+            color: var(--dark-color);
+            font-weight: 800;
+        }
+
+        .heading span {
+            color: var(--main-color);
+        }
+
+        .about .row-1,
+        .about .row-2,
+        .experience .box-container,
+        .contact .icons-container {
+            gap: 2rem;
+        }
+
+        .about .row-1 .content,
+        .about .row-1 .image,
+        .experience .box-container .box,
+        .contact .icons-container .icons {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .about .row-1 .image {
+            padding: 1.5rem;
+        }
+
+        .about .row-1 .image img {
+            border-radius: 1rem;
+        }
+
+        .about .row-1 .content {
+            padding: 2rem;
+        }
+
+        .about .row-1 .content h3 {
+            color: var(--dark-color);
+            font-weight: 800;
+        }
+
+        .about .row-1 .content p {
+            color: var(--light-color);
+            line-height: 1.8;
+        }
+
+        .about .row-1 .content .box-container .box p span {
+            color: var(--main-color);
+            font-weight: 700;
+        }
+
+        .skills .progress {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: .8rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            margin-bottom: 1.5rem;
+        }
+
+        .skills .progress h3 {
+            color: var(--dark-color);
+            font-weight: 700;
+        }
+
+        .skills .progress h3 span {
+            color: var(--main-color);
+        }
+
+        .skills .progress .bar {
+            background: #e5e7eb;
+            border-radius: 2rem;
+            overflow: hidden;
+        }
+
+        .skills .progress .bar span {
+            background: var(--main-color);
+        }
+
+        .experience .box-container .box {
+            padding: 2rem;
+            transition: .3s ease;
+        }
+
+        .experience .box-container .box:hover {
+            transform: translateY(-5px);
+            border-color: var(--main-color);
+        }
+
+        .experience .box-container .box .content {
+            border-left: .4rem solid var(--main-color);
+            padding-left: 1.5rem;
+        }
+
+        .experience .box-container .box .content span {
+            background: #dbeafe;
+            color: var(--main-color);
+            font-weight: 700;
+            border-radius: 2rem;
+            padding: .5rem 1rem;
+        }
+
+        .experience .box-container .box .content h3 {
+            color: var(--dark-color);
+            font-weight: 800;
+        }
+
+        .experience .box-container .box .content p {
+            color: var(--light-color);
+            line-height: 1.7;
+        }
+
+        .contact .icons-container .icons {
+            padding: 2rem;
+            transition: .3s ease;
+        }
+
+        .contact .icons-container .icons:hover {
+            transform: translateY(-5px);
+            border-color: var(--main-color);
+        }
+
+        .contact .icons-container .icons i {
+            background: #dbeafe;
+            color: var(--main-color);
+        }
+
+        .contact .icons-container .icons h3 {
+            color: var(--dark-color);
+            font-weight: 800;
+        }
+
+        .contact .icons-container .icons p,
+        .contact .icons-container .icons p a {
+            color: var(--light-color);
+            word-break: break-word;
+        }
+
+        .footer {
+            background: var(--white);
+            border-top: 1px solid var(--border-color);
+            color: var(--light-color);
+        }
+
+        .footer span {
+            color: var(--main-color);
+            font-weight: 700;
+        }
+
+        .hire-banner {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            padding: 2.5rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .hire-banner h3 {
+            font-size: 2.2rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .hire-banner p {
+            font-size: 1.5rem;
+            color: var(--light-color);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+    </style>
 </head>
 <body>
 
@@ -30,9 +333,22 @@
         <a href="#about">about</a>
         <a href="#skills">skills</a>
         <a href="#experience">experience</a>
+        <a href="#tools">tools</a>
         <a href="#education">education</a>
         <a href="#contact">contact</a>
+        <a href="https://drive.google.com/drive/folders/YOUR-ACCOMPLISHMENTS-FOLDER-LINK" target="_blank">
+            accomplishments
+        </a>
     </nav>
+
+    <div class="sidebar-cta">
+        <i class="fas fa-folder-open"></i>
+        <h3>My Accomplishments</h3>
+        <p>View my work samples, projects, certificates, and completed tasks.</p>
+        <a href="https://drive.google.com/drive/folders/YOUR-ACCOMPLISHMENTS-FOLDER-LINK" target="_blank">
+            View Drive
+        </a>
+    </div>
 
     <div class="follow">
         <a href="https://www.linkedin.com/in/jhon-mark-palen-5b5508125/" target="_blank" class="fab fa-linkedin"></a>
@@ -45,16 +361,18 @@
 <section class="home" id="home">
 
     <div class="content">
-        <span class="hi"> hi there... </span>
-        <h3> i am <span> Jhon Mark Palen </span> </h3>
-        <p class="info"> Virtual Assistant | WordPress Support | Web Development | Canva | CRM & Admin Support</p>
+        <span class="hi">Hello, I am available for work</span>
+        <h3>I am <span>Jhon Mark Palen</span></h3>
+        <p class="info">Virtual Assistant | WordPress Support | Web Development | Canva | CRM & Admin Support</p>
         <p class="text">
-            Detail-oriented Virtual Assistant with experience in WordPress content updates, Trello task management,
-            basic HubSpot workflow support, Canva design, Microsoft Office, Google Docs, Google Sheets, and other
-            administrative tools.
+            I help businesses manage website content, organize tasks, support CRM workflows, prepare documents,
+            create simple designs, and handle administrative work with accuracy and reliability.
         </p>
-        <a href="#about" class="btn">about me</a>
         <a href="#contact" class="btn">hire me</a>
+        <a target="_blank" href="https://canva.link/h3thhzu3fqcjy91" class="btn">download CV</a>
+        <a target="_blank" href="https://drive.google.com/drive/folders/YOUR-ACCOMPLISHMENTS-FOLDER-LINK" class="btn">
+            view accomplishments
+        </a>
     </div>
 
 </section>
@@ -72,25 +390,30 @@
         </div>
 
         <div class="content">
-            <h3>Jhon Mark Palen</h3>
+            <h3>Reliable Virtual Assistant for Website, Admin, and Digital Support</h3>
 
             <p>
-                I am a reliable and adaptable Virtual Assistant with knowledge in WordPress content management,
-                website content updates, basic web development, Canva graphic design, CRM support, data entry,
-                online research, and administrative support. I am able to work independently with minimal supervision
-                and assist teams with day-to-day online workflows.
+                I am a detail-oriented Virtual Assistant with experience in WordPress content updates, Trello task
+                management, basic HubSpot workflow support, Canva design, Microsoft Office, Google Docs, Google Sheets,
+                and other administrative tools. I am also knowledgeable in basic web development, including HTML, CSS,
+                JavaScript, PHP, and website content management.
+            </p>
+
+            <p>
+                I can support businesses by organizing tasks, managing digital content, preparing documents, assisting
+                with marketing operations, and helping teams complete day-to-day online workflows accurately and on time.
             </p>
 
             <div class="box-container">
                 <div class="box">
                     <p> <span> role : </span> Virtual Assistant </p>
-                    <p> <span> specialization : </span> WordPress Support </p>
+                    <p> <span> specialization : </span> WordPress Support & Admin Support </p>
                     <p> <span> language : </span> English, Tagalog </p>
                     <p> <span> address : </span> San Agustin, Surigao del Sur, PH </p>
                 </div>
 
                 <div class="box">
-                    <p> <span> freelance : </span> available </p>
+                    <p> <span> availability : </span> Open for opportunities </p>
                     <p> <span> email : </span> jmpalen.va@gmail.com </p>
                     <p> <span> phone : </span> +639-3003-75808 </p>
                     <p> <span> country : </span> Philippines </p>
@@ -98,6 +421,9 @@
             </div>
 
             <a target="_blank" href="https://canva.link/h3thhzu3fqcjy91" class="btn">download CV</a>
+            <a target="_blank" href="https://drive.google.com/drive/folders/1gZl0JrfqCO2ru1qieTpeuKLn-ceXC3wc?usp=sharing" class="btn">
+                accomplishments
+            </a>
             <a href="#contact" class="btn">hire me</a>
         </div>
 
@@ -109,7 +435,7 @@
 <!-- skills section starts -->
 <section class="about" id="skills">
 
-    <h1 class="heading"> <span> my </span> skills </h1>
+    <h1 class="heading"> <span> core </span> skills </h1>
 
     <div class="row-2">
 
@@ -194,7 +520,7 @@
             <div class="content">
                 <span> Virtual Assistant / Digital Support Assistant </span>
                 <h3>Basic Website Maintenance</h3>
-                <p>Supported basic website maintenance tasks, including content checks, updates, and minor adjustments.</p>
+                <p>Supported website content checks, minor updates, and basic maintenance tasks.</p>
             </div>
         </div>
 
@@ -202,7 +528,7 @@
             <div class="content">
                 <span> Virtual Assistant / Digital Support Assistant </span>
                 <h3>HTML/CSS Layout Adjustments</h3>
-                <p>Assisted with basic web development tasks, including HTML/CSS edits and layout adjustments.</p>
+                <p>Assisted with basic HTML/CSS edits, layout adjustments, and website content formatting.</p>
             </div>
         </div>
 
@@ -210,7 +536,7 @@
             <div class="content">
                 <span> Virtual Assistant / Digital Support Assistant </span>
                 <h3>Trello Task Management</h3>
-                <p>Organized tasks, project workflows, and team assignments using Trello.</p>
+                <p>Organized tasks, project workflows, deadlines, and team assignments using Trello.</p>
             </div>
         </div>
 
@@ -218,7 +544,7 @@
             <div class="content">
                 <span> Virtual Assistant / Digital Support Assistant </span>
                 <h3>HubSpot CRM Support</h3>
-                <p>Assisted with basic HubSpot workflow setup, contact management, and CRM organization.</p>
+                <p>Assisted with contact management, CRM organization, and basic HubSpot workflow support.</p>
             </div>
         </div>
 
@@ -234,7 +560,7 @@
             <div class="content">
                 <span> Virtual Assistant / Digital Support Assistant </span>
                 <h3>Reports, Docs & Spreadsheets</h3>
-                <p>Prepared reports, documents, spreadsheets, and presentations using Microsoft Office and Google Workspace.</p>
+                <p>Prepared documents, reports, spreadsheets, and presentations using Microsoft Office and Google Workspace.</p>
             </div>
         </div>
 
@@ -268,21 +594,21 @@
         <div class="box">
             <div class="content">
                 <h3>Trello</h3>
-                <p>Task organization, workflow tracking, and project coordination.</p>
+                <p>Task organization, workflow tracking, project coordination, and deadline monitoring.</p>
             </div>
         </div>
 
         <div class="box">
             <div class="content">
                 <h3>HubSpot</h3>
-                <p>Basic workflow support, contact management, and CRM organization.</p>
+                <p>Basic CRM support, contact management, and workflow assistance.</p>
             </div>
         </div>
 
         <div class="box">
             <div class="content">
                 <h3>Canva</h3>
-                <p>Social media graphics, banners, and simple marketing materials.</p>
+                <p>Social media graphics, banners, simple layouts, and marketing design support.</p>
             </div>
         </div>
 
@@ -312,6 +638,24 @@
 </section>
 <!-- tools section ends -->
 
+<!-- accomplishments section starts -->
+<section class="experience" id="accomplishments">
+
+    <h1 class="heading"> <span> my </span> accomplishments </h1>
+
+    <div class="hire-banner">
+        <h3>Want to see my sample works and accomplishments?</h3>
+        <p>
+            You can view my work samples, certificates, completed tasks, and other accomplishments through my Google Drive folder.
+        </p>
+        <a target="_blank" href="https://drive.google.com/drive/folders/YOUR-ACCOMPLISHMENTS-FOLDER-LINK" class="btn">
+            view accomplishments
+        </a>
+    </div>
+
+</section>
+<!-- accomplishments section ends -->
+
 <!-- education section starts -->
 <section class="experience" id="education">
 
@@ -335,14 +679,25 @@
 <!-- contact section starts -->
 <section class="contact" id="contact">
 
-    <h1 class="heading"> contact <span> me </span> </h1>
+    <h1 class="heading"> hire <span> me </span> </h1>
+
+    <div class="hire-banner">
+        <h3>Ready to support your business</h3>
+        <p>
+            I can help with WordPress updates, admin tasks, CRM support, Canva designs, reports, spreadsheets,
+            email organization, and daily online workflows.
+        </p>
+        <a href="mailto:jmpalen.va@gmail.com" class="btn">send me an email</a>
+    </div>
+
+    <h1 class="heading"> contact <span> details </span> </h1>
 
     <div class="icons-container">
 
         <div class="icons">
             <i class="fas fa-envelope"></i>
-            <h3>my email</h3>
-            <p>jmpalen.va@gmail.com</p>
+            <h3>email</h3>
+            <p><a href="mailto:jmpalen.va@gmail.com">jmpalen.va@gmail.com</a></p>
         </div>
 
         <div class="icons">
@@ -360,7 +715,7 @@
         <div class="icons">
             <i class="fas fa-globe"></i>
             <h3>website</h3>
-            <p>https://devsurigao.github.io/portfolio</p>
+            <p><a href="https://devsurigao.github.io/portfolio" target="_blank">https://devsurigao.github.io/portfolio</a></p>
         </div>
 
     </div>
